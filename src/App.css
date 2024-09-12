@@ -9,3 +9,15 @@
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 10px;
 }
+
+.light{
+  background: rgb(255, 255, 234);
+  color: black;
+  transition: all 200ms;
+}
+
+.dark{
+  background: rgb(34, 49, 70);
+  color: white;
+  transition: all 200ms;
+}

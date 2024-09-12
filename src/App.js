@@ -53,7 +53,7 @@ function App() {
     }
   }
   return (
-    <div className="App">
+    <div className={"App "+theme}>
       <Header theme={theme} setTheme={setTheme} />
       <div className="container">
         <AddForm
