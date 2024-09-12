@@ -4,7 +4,7 @@ export default function AddForm(props) {
   const { title, setTitle,saveTask,editID } = props;
   return (
     <>
-      <h2>Form management</h2>
+      <h2>App management</h2>
       <form onSubmit={saveTask}>
         <div className="form-control">
           <input
