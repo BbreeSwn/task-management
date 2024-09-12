@@ -1,9 +1,9 @@
-import React from 'react'
+import "./Item.css"
 
 export default function Item() {
   return (
     <>
-    <p>1</p>
+    <p>task 1</p>
     </>
   )
 }
