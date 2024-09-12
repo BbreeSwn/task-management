@@ -10,16 +10,32 @@ function App() {
     {id:2,title:"Study React"},
     {id:3,title:"Cooking"}
   ])
+  const [title , setTitle] = useState("")
 
   function deleteTask(id){
     const result = task.filter(item=>item.id !==id)
     setTask(result)
   }
+
+  function saveTask(e){
+    e.preventDefault()
+    if(!title){
+      alert("Please add your title!")
+    }else{
+      //add new title
+      const newTask = {
+        id:Math.floor(Math.random()*1000),
+        title
+      }
+      setTask([...task,newTask])
+      setTitle("")
+    }
+  }
   return (
     <div className="App">
       <Header />
       <div className="container">
-        <AddForm />
+        <AddForm title={title} setTitle={setTitle} saveTask={saveTask} />
         <section>
           {
             task.map((data)=>(
