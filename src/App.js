@@ -6,8 +6,8 @@ import {useState} from "react"
 
 function App() {
   const [task , setTask] = useState([
-    {id:1,title:"fix bugs"},
-    {id:2,title:"study react"},
+    {id:1,title:"Fix bugs"},
+    {id:2,title:"Study React"},
     {id:3,title:"Cooking"}
   ])
   return (
@@ -15,7 +15,13 @@ function App() {
       <Header />
       <div className="container">
         <AddForm />
-        <Item />
+        <section>
+          {
+            task.map((data)=>(
+              <Item key={data.id} data={data} />
+            ))
+          }
+        </section>
       </div>
     </div>
   );
