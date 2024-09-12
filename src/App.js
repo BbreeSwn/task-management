@@ -2,16 +2,19 @@ import "./App.css";
 import Header from "./components/Header";
 import AddForm from "./components/AddForm";
 import Item from "./components/Item";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 
 function App() {
-  const [task, setTask] = useState([
-    { id: 1, title: "Fix bugs" },
-    { id: 2, title: "Study React" },
-    { id: 3, title: "Cooking" },
-  ]);
+  const [task, setTask] = useState([]);
   const [title, setTitle] = useState("");
   const [editID, setEditID] = useState(null);
+
+  //? ☝🏻 แบบที่ 1 เมื่อมีการเปลี่ยนแปลง state จะเกิด effect ขึ้นทั้งหมด เช่น พิมว่า ไป useEffect จะทำงาน 2 ครั้ง คือ ไ และ ป 
+  //? ✌🏻 แบบที่ 2 เมื่อ Run App useEffect จะทำงานแค่ครั้งเดียวตอนเริ่มต้น
+  //? 👌🏻 แบบที่ 3 ดักจับ effect ที่เกิดขึ้น ใน state ที่กำหนด เมื่อ state ที่กำหนด มีการแก้ไข useEffect จะทำงาน
+  useEffect(()=>{
+    console.log("Call  useEffect");
+  },[task])
 
   function deleteTask(id) {
     const result = task.filter((item) => item.id !== id);
@@ -33,13 +36,13 @@ function App() {
       const updateTask = task.map((item) => {
         //which title.id === editID ? let change propertie title
         if (item.id === editID) {
-          return { ...item, title:title };
+          return { ...item, title: title };
         }
-        return item
+        return item;
       });
-      setTask(updateTask)
-      setEditID(null)
-      setTitle("")
+      setTask(updateTask);
+      setEditID(null);
+      setTitle("");
     } else {
       //add new title
       const newTask = {
