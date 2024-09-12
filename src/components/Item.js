@@ -1,7 +1,7 @@
 import "./Item.css";
 
 export default function Item(props) {
-  const { data, deleteTask } = props;
+  const { data, deleteTask,editTask } = props;
   return (
     <div className="list-item">
       <p className="title">{data.title}</p>
@@ -9,7 +9,7 @@ export default function Item(props) {
         <button className="btn" onClick={() => deleteTask(data.id)}>
           delete
         </button>
-        <button className="btn">edit</button>
+        <button className="btn" onClick={()=>editTask(data.id)}>edit</button>
       </div>
     </div>
   );

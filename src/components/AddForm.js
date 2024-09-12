@@ -1,7 +1,7 @@
 import "./AddForm.css";
 
 export default function AddForm(props) {
-  const { title, setTitle,saveTask } = props;
+  const { title, setTitle,saveTask,editID } = props;
   return (
     <>
       <h2>Form management</h2>
@@ -14,7 +14,7 @@ export default function AddForm(props) {
             onChange={(e) => setTitle(e.target.value)}
           />
           <button type="submit" className="submit-btn">
-            Add
+            {editID ? "Update" : "Add"}
           </button>
         </div>
       </form>
