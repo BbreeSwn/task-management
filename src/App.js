@@ -10,6 +10,11 @@ function App() {
     {id:2,title:"Study React"},
     {id:3,title:"Cooking"}
   ])
+
+  function deleteTask(id){
+    const result = task.filter(item=>item.id !==id)
+    setTask(result)
+  }
   return (
     <div className="App">
       <Header />
@@ -18,7 +23,7 @@ function App() {
         <section>
           {
             task.map((data)=>(
-              <Item key={data.id} data={data} />
+              <Item key={data.id} data={data} deleteTask={deleteTask} />
             ))
           }
         </section>
