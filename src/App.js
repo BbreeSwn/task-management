@@ -5,15 +5,13 @@ import Item from "./components/Item";
 import { useState,useEffect } from "react";
 
 function App() {
-  const [task, setTask] = useState([]);
+  const [task, setTask] = useState(JSON.parse(localStorage.getItem("task"))||[]);
   const [title, setTitle] = useState("");
   const [editID, setEditID] = useState(null);
 
-  //? ☝🏻 แบบที่ 1 เมื่อมีการเปลี่ยนแปลง state จะเกิด effect ขึ้นทั้งหมด เช่น พิมว่า ไป useEffect จะทำงาน 2 ครั้ง คือ ไ และ ป 
-  //? ✌🏻 แบบที่ 2 เมื่อ Run App useEffect จะทำงานแค่ครั้งเดียวตอนเริ่มต้น
-  //? 👌🏻 แบบที่ 3 ดักจับ effect ที่เกิดขึ้น ใน state ที่กำหนด เมื่อ state ที่กำหนด มีการแก้ไข useEffect จะทำงาน
+  // บันทึกข้อมูลทั้งหมดลงไปใน localStorage ที่เป็นฐานข้อมูลใน setItem โดยต้องตั้งชื่อฐานข้อมูลคือ "task"
   useEffect(()=>{
-    console.log("Call  useEffect");
+    localStorage.setItem("task",JSON.stringify(task))
   },[task])
 
   function deleteTask(id) {
