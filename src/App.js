@@ -8,6 +8,7 @@ function App() {
   const [task, setTask] = useState(JSON.parse(localStorage.getItem("task"))||[]);
   const [title, setTitle] = useState("");
   const [editID, setEditID] = useState(null);
+  const [theme,setTheme] = useState("light")
 
   // บันทึกข้อมูลทั้งหมดลงไปใน localStorage ที่เป็นฐานข้อมูลใน setItem โดยต้องตั้งชื่อฐานข้อมูลคือ "task"
   useEffect(()=>{
@@ -53,7 +54,7 @@ function App() {
   }
   return (
     <div className="App">
-      <Header />
+      <Header theme={theme} setTheme={setTheme} />
       <div className="container">
         <AddForm
           title={title}
