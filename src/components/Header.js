@@ -1,4 +1,6 @@
 import "./Header.css"
+import { AiOutlineSun , AiFillMoon  } from "react-icons/ai";
+
 export default function Header(props) {
   const {theme , setTheme} = props
   function ToggleTheme(){
@@ -14,8 +16,9 @@ export default function Header(props) {
         <span>Task Management</span>
       </div>
       <div className="theme-container">
-        <span>{theme === "light"? "light":"dark"}</span>
-        <span className="icon" onClick={ToggleTheme}>Change mode</span>
+      
+        <span>{theme === "light"? "light mode":"dark mode"}</span>
+        <span className="icon" onClick={ToggleTheme}>{theme === "light"? <AiOutlineSun />: <AiFillMoon />}</span>
       </div>
     </header>
   );
