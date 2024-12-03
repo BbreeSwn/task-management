@@ -55,12 +55,13 @@ function App() {
   return (
     <div className={"App "+theme}>
       <Header theme={theme} setTheme={setTheme} />
-      <div className="container">
+      <div className={"container "+theme}>
         <AddForm
           title={title}
           setTitle={setTitle}
           saveTask={saveTask}
           editID={editID}
+          theme={theme}
         />
         <section>
           {task.map((data) => (
@@ -69,6 +70,8 @@ function App() {
               data={data}
               deleteTask={deleteTask}
               editTask={editTask}
+              theme={theme}
+              setTheme={setTheme}
             />
           ))}
         </section>
