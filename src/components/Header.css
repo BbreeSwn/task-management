@@ -25,3 +25,21 @@ margin-left: 10px;
 .theme-container .icon{
     font-size: 15px;
 }
+
+@media only screen and (max-width: 768px){
+    header{
+        display: flex;
+        justify-content: space-around;
+    }
+    .logo span {
+        margin-left: 0;
+    }
+    .theme-container span{
+        margin-left: 40px;
+        font-size: 18px;
+    }
+    .theme-container .icon{
+        font-size: 10px;
+        margin-left: 20px;
+    }
+}
